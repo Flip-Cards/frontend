@@ -1,0 +1,27 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #90C8AC;
+  color: #fafafa;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  background-color: #90C8AC;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: all 0.3s;
+  max-width: 320px;
+}
+
+.button:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.button:hover {
+  background-color: #fafafa;
+  color: #90C8AC;
+  border-color: #fafafa;
+}

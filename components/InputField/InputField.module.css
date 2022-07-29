@@ -1,0 +1,66 @@
+.input__field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.input__field label {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+
+.input {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.input input {
+  background: #ffffff;
+  border: 1px solid #afafaf;
+  border-radius: 8px;
+  padding: 16px;
+  margin-right: 16px;
+  outline: none;
+  width: 609px;
+}
+
+.input input::placeholder {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #afafaf;
+}
+
+.input button {
+  background: #90c8ac;
+  border-radius: 8px;
+  color: #fafafa;
+  padding: 8px 16px;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #ff7878;
+}

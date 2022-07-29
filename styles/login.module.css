@@ -1,0 +1,81 @@
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.login__left {
+  width: 60%;
+  padding-left: 48px;
+  padding-right: 160px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background-image: url("/login.png");
+  background-size: cover;
+  color: #ffffff;
+}
+
+.login__left > div:first-of-type {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 64px;
+  letter-spacing: 0.04em;
+}
+
+.info {
+  position: absolute;
+  bottom: 128px;
+}
+
+.info h4 {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
+
+.login__left p {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  color: #FAFAFA70;
+}
+
+.login__right {
+  width: 40%;
+  padding-top: 168px;
+  padding-left: 48px;
+  padding-right: 144px;
+}
+
+.login__right h2 {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+  color: #151414;
+  margin-bottom: 8px;
+}
+
+.login__right p {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  color: #afafaf;
+  margin-bottom: 80px;
+}
+
+.buttons {
+  margin-bottom: 16px;
+}
