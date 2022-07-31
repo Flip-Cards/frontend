@@ -1,4 +1,5 @@
 export async function parseJsonFile(file) {
+  // accepts a JSON file object and returns a valid javascript Object
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader();
     fileReader.onload = (event) => resolve(JSON.parse(event.target.result));

@@ -16,19 +16,20 @@ const BulkUpload = () => {
   const { isAuthenticated, user, auth, account, logout, Moralis } =
     useMoralis();
 
-  // account -> represents the wallet address of the user
-
   useEffect(() => {
+    // useEffect hook call to initialise the Web3Provider and to connect with the smart contract
     const temp = async () => {
       let provider = window.ethereum;
       const web3 = new Web3(provider);
       web3Ref.current = web3;
+      // the second argument to the below function call represents the contract address
       let nftContract = new web3.eth.Contract(
         FlipCard.abi,
         "0xd9eB2B39b8A3e2d4319fa3EbCCb95648f3EbaE85"
       );
       nftContractRef.current = nftContract;
       try {
+        // just to test whether connection to smart contract is succesful or not
         let res = await nftContract.methods.heartbeat().call();
         console.log(res === 1 ? "Connected" : "Not Connected");
       } catch (err) {}
@@ -37,6 +38,10 @@ const BulkUpload = () => {
   }, []);
 
   const uploadToIPFS = async () => {
+    /* function which reads a JSON file from userInput accesses
+       it's data field, extracts all the serial numbers, batch uploads all the
+       metadata to the IPFS Storage and returns the hosted URLs as an array
+    */
     const obj = await parseJsonFile(selectedFile);
     const metaData = obj["data"];
     const serialNumbers = metaData.map((each) => each["serial"]);
@@ -76,8 +81,7 @@ const BulkUpload = () => {
   };
 
   const batchMint = async (contract, uri) => {
-    console.log("batchMint called");
-    console.log("Contract:", contract);
+    // batchMint the NFTs using safeMintBatch method
 
     const [ipfsURLs, serialNumbers] = await uploadToIPFS();
 

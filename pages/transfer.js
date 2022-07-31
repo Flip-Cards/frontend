@@ -8,6 +8,7 @@ import FlipCard from "../contracts/flipCard.json";
 import styles from "../styles/bulk.module.css";
 
 const TransferNFT = () => {
+  // various useState hooks call to store the input information
   const [serialNumber, setSerialNumber] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const [isValidSerialNumber, setIsValidSerialNumber] = useState(true);
@@ -16,16 +17,19 @@ const TransferNFT = () => {
   const nftContractRef = useRef(null);
 
   useEffect(() => {
+    // useEffect hook call to initialise the Web3Provider and to connect with the smart contract
     const temp = async () => {
       let provider = window.ethereum;
       const web3 = new Web3(provider);
       web3Ref.current = web3;
+      // the second argument to the below function call represents the contract address
       let nftContract = new web3.eth.Contract(
         FlipCard.abi,
         "0xd9eB2B39b8A3e2d4319fa3EbCCb95648f3EbaE85"
       );
       nftContractRef.current = nftContract;
       try {
+        // just to test whether connection to smart contract is succesful or not
         let res = await nftContract.methods.heartbeat().call();
         console.log(res === 1 ? "Connected" : "Not Connected");
       } catch (err) {}
@@ -36,6 +40,7 @@ const TransferNFT = () => {
   const transferNFT = async () => {
     let tokenId;
     try {
+      // access the nft Token id from the serial number
       tokenId = await nftContractRef.current.methods.getURIToken(serialNumber);
       console.log(tokenId);
     } catch (err) {
@@ -45,6 +50,14 @@ const TransferNFT = () => {
     let contractAddress = "0xd9eB2B39b8A3e2d4319fa3EbCCb95648f3EbaE85";
 
     try {
+      /* method to transfer the nft from the owner
+      to the buyer of the product It takes three
+      argument 
+      1. Contract Address
+      2. walletAddress: Address of the wallet who has bought the product
+      3. NFT TokenID of the product
+      and transfers the NFT
+      */
       await nftContractRef.current.methods.safeTransferFrom(
         contractAddress,
         walletAddress,
