@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #afafaf;
+}
+
+.row td {
+  margin-right: 64px;
+  text-align: center;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+
+  color: #afafaf;
+}
+
+.initiate {
+  background: #90c8ac;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding: 4px 32px;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  cursor: pointer;
+}

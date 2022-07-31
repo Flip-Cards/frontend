@@ -1,6 +1,16 @@
 import styles from "./InputField.module.css";
 
-const InputField = ({ label, id, value, setValue, error, setError, placeholder, action }) => {
+const InputField = ({
+  label,
+  id,
+  value,
+  setValue,
+  errorMsg,
+  placeholder,
+  action,
+  isValidValue,
+  setValidValue,
+}) => {
   return (
     <div className={styles.input__field}>
       <label htmlFor={id}>{label}</label>
@@ -12,9 +22,11 @@ const InputField = ({ label, id, value, setValue, error, setError, placeholder, 
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholder}
         />
-        <button type="button" onClick={action}>validate</button>
+        <button type="button" onClick={action}>
+          validate
+        </button>
       </div>
-      <div className={styles.error}>{error}</div>
+      {!isValidValue && <div className={styles.error}>{errorMsg}</div>}
     </div>
   );
 };

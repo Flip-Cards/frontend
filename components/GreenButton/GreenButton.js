@@ -1,12 +1,30 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./GreenButton.module.css";
 
-const Button = ({ text, type }) => {
+const Button = ({
+  text,
+  type,
+  selectedFile,
+  setSelectedFile,
+  hasSelectedFile,
+  setHasSelectedFile,
+}) => {
   const fileRef = useRef(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setHasSelectedFile(true);
+  };
 
   return (
     <>
-      <input type="file" ref={fileRef} style={{ display: "none" }} />
+      <input
+        type="file"
+        accept="application/JSON"
+        ref={fileRef}
+        style={{ display: "none" }}
+        onChange={handleFileChange}
+      />
       <button
         type={type}
         className={styles.button}

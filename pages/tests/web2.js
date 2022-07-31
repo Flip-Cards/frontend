@@ -31,7 +31,7 @@ export default function web2() {
         return;
       });
     const web3 = new Web3(provider);
-    const networkId = await web3.eth.net.getId();
+    // const networkId = await web3.eth.net.getId();
     let nftContract = new web3.eth.Contract(
       FlipCard.abi,
       "0xd9eB2B39b8A3e2d4319fa3EbCCb95648f3EbaE85"

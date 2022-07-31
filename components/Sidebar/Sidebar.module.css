@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 
-.middle > div {
+.middle div {
   font-family: "Inter";
   font-weight: 500;
   font-size: 16px;
@@ -32,9 +32,10 @@
   align-items: center;
   letter-spacing: 0.01em;
   color: #151414;
+  cursor: pointer;
 }
 
-.middle > div:not(:last-of-type) {
+.middle div:not(:last-of-type) {
   margin-bottom: 16px;
 }
 

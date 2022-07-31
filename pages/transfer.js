@@ -7,7 +7,9 @@ import styles from "../styles/bulk.module.css";
 
 const TransferNFT = () => {
   const [serialNumber, setSerialNumber] = useState("");
-  const [waalletAddress, setWalletAddress] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
+  const [isValidSerialNumber, setIsValidSerialNumber] = useState(false);
+  const [isValidWalletAddress, setIsValidWalletAddress] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -22,16 +24,20 @@ const TransferNFT = () => {
           value={serialNumber}
           setValue={setSerialNumber}
           placeholder={"SBIN15451818435135"}
-          error={"Enter a valid serial number"}
+          errorMsg={"Enter a valid serial number"}
           action={() => {}}
+          isValidValue={isValidSerialNumber}
+          setIsValidValue={setIsValidSerialNumber}
         />
         <InputField
-          label={"Enter Serial Number"}
-          value={waalletAddress}
+          label={"Enter receiver’s wallet address"}
+          value={walletAddress}
           setValue={setWalletAddress}
-          placeholder={"SBIN15451818435135"}
-          error={"Enter a valid wallet address"}
+          placeholder={"0x16749405958590"}
+          errorMsg={"Enter a valid wallet address"}
           action={() => {}}
+          isValidValue={isValidWalletAddress}
+          setIsValidValue={setIsValidWalletAddress}
         />
         <Button
           text={"TRANSFER WARRANT CARD"}

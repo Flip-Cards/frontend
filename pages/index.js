@@ -1,9 +1,45 @@
 import Head from "next/head";
-
+import { useRouter } from "next/router";
 import Button from "../components/Button/Button";
 import styles from "../styles/login.module.css";
 
+import { useMoralis } from "react-moralis";
+import { useEffect } from "react";
+
 export default function Home() {
+  const { authenticate, isAuthenticated, user, auth } = useMoralis();
+  const router = useRouter();
+
+  const login = async (authMethod) => {
+    try {
+      if (authMethod == "metamask") {
+        await authenticate({ signingMessage: "Welcome to Flipkart Grid" });
+      } else if (authMethod == "walletconnect") {
+        await authenticate({
+          provider: "walletconnect",
+          mobileLinks: [
+            "rainbow",
+            "metamask",
+            "argent",
+            "trust",
+            "imtoken",
+            "pillar",
+          ],
+          signingMessage: "Welcome to Flipkart Grid",
+        });
+      }
+      router.push("/bulkupload");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     router.push("/bulkupload");
+  //   }
+  // }, [isAuthenticated]);
+
   return (
     <div>
       <Head>
@@ -26,8 +62,11 @@ export default function Home() {
           <h2>Login to account</h2>
           <p>Only the owners of the blockchain can access this platform</p>
           <div className={styles.buttons}>
-            <Button text={"METAMASK"} click={() => console.log("Click")} />
-            <Button text={"WALLETCONNECT"} click={() => console.log("Click")} />
+            <Button text={"METAMASK"} click={() => login("metamask")} />
+            <Button
+              text={"WALLETCONNECT"}
+              click={() => login("walletconnect")}
+            />
           </div>
           <p>Only the owners of the blockchain can access this platform</p>
         </div>
