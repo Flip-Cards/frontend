@@ -2,7 +2,6 @@
   display: flex;
   width: 100vw;
   height: 100%;
-  background-color: rebeccapurple;
 }
 
 .right {
@@ -68,4 +67,47 @@
   letter-spacing: 0.01em;
   color: #373737;
   text-align: center;
+}
+
+.container thead {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  letter-spacing: 0.01em;
+  color: #151414;
+  margin-bottom: 16px;
+}
+
+.container th:not(:last-of-type) {
+  margin-right: 64px;
+}
+
+.mintButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #90c8ac;
+  color: #fafafa;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  background-color: #90c8ac;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: all 0.3s;
+  max-width: 320px;
+}
+
+.mintButton:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.mintButton:hover {
+  background-color: #fafafa;
+  color: #90c8ac;
+  border-color: #fafafa;
 }
