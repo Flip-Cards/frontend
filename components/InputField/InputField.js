@@ -22,9 +22,9 @@ const InputField = ({
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholder}
         />
-        <button type="button" onClick={action}>
+        {/* <button type="button" onClick={action}>
           validate
-        </button>
+        </button> */}
       </div>
       {!isValidValue && <div className={styles.error}>{errorMsg}</div>}
     </div>
