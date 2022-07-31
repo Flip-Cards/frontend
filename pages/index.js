@@ -40,6 +40,8 @@ export default function Home() {
   //   }
   // }, [isAuthenticated]);
 
+  useEffect(() => {}, []);
+
   return (
     <div>
       <Head>
